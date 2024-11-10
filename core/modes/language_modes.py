@@ -1,4 +1,4 @@
-from talon import Context, Module, actions
+from talon import Context, Module, actions, app
 
 # Maps language mode names to the extensions that activate them. Only put things
 # here which have a supported language mode; that's why there are so many
@@ -9,18 +9,18 @@ language_extensions = {
     "batch": "bat",
     "c": "c h",
     # 'cmake': 'cmake',
-    # 'cplusplus': 'cpp hpp',
+    # "cplusplus": "cpp hpp",
     "csharp": "cs",
     "css": "css",
     # 'elisp': 'el',
     # 'elm': 'elm',
     "gdb": "gdb",
     "go": "go",
-    # 'html': 'html',
     "java": "java",
     "javascript": "js",
     "javascriptreact": "jsx",
-    # 'json': 'json',
+    # "json": "json",
+    "elixir": "ex",
     "kotlin": "kt",
     "lua": "lua",
     "markdown": "md",
@@ -46,6 +46,21 @@ language_extensions = {
     "typescriptreact": "tsx",
     # 'vba': 'vba',
     "vimscript": "vim vimrc",
+    # html doesn't actually have a language mode, but we do have snippets.
+    "html": "html",
+}
+
+# Files without specific extensions but are associated with languages
+special_file_map = {
+    "CMakeLists.txt": "cmake",
+    "Makefile": "make",
+    "Dockerfile": "docker",
+    "meson.build": "meson",
+    ".bashrc": "bash",
+    ".zshrc": "zsh",
+    "PKGBUILD": "pkgbuild",
+    ".vimrc": "vimscript",
+    "vimrc": "vimscript",
 }
 
 # Override speakable forms for language modes. If not present, a language mode's
@@ -61,7 +76,6 @@ language_name_overrides = {
 }
 
 mod = Module()
-
 ctx = Context()
 
 ctx_forced = Context()
@@ -94,6 +108,10 @@ forced_language = ""
 @ctx.action_class("code")
 class CodeActions:
     def language():
+        file_name = actions.win.filename()
+        if file_name in special_file_map:
+            return special_file_map[file_name]
+
         file_extension = actions.win.file_ext()
         return extension_lang_map.get(file_extension, "")
 
@@ -121,3 +139,10 @@ class Actions:
         global forced_language
         forced_language = ""
         ctx.tags = []
+
+    def code_show_forced_language_mode():
+        """Show the active language for this context"""
+        if forced_language:
+            app.notify(f"Forced language: {forced_language}")
+        else:
+            app.notify("No language forced")
