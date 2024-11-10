@@ -15,6 +15,7 @@ not speech.engine: dragon
 # we don't do anything with the <phrase> in the body of the command.
 
 ^talon wake [<phrase>]$: speech.enable()
+^wake up [<phrase>]$: speech.enable()
 
 # We define this *only* if the speech engine isn't Dragon, because if you're using Dragon,
 # "wake up" is used to specifically control Dragon, and not affect Talon.
@@ -30,6 +31,7 @@ not speech.engine: dragon
 # engine, this controls Talon.
 ^go to sleep [<phrase>]$: speech.disable()
 ^talon sleep [<phrase>]$: speech.disable()
+^drowse [<phrase>]$: speech.disable()
 
 ^sleep all [<phrase>]$:
     user.switcher_hide_running()

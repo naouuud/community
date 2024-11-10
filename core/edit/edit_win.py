@@ -149,8 +149,7 @@ class EditActions:
     def right():
         actions.key("right")
 
-    def save():
-        actions.key("ctrl-s")
+    def save(): actions.key("ctrl-s")
 
     def save_all():
         actions.key("ctrl-shift-s")
