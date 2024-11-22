@@ -1,0 +1,16 @@
+list: user.system_paths
+hostname: DESKTOP-RUUI0N9
+-
+user: C:\Users\gaming
+desktop: C:\Users\gaming\Desktop
+desk: C:\Users\gaming\Desktop
+documents: C:\Users\gaming\Documents
+docks: C:\Users\gaming\Documents
+downloads: C:\Users\gaming\Downloads
+music: C:\Users\gaming\Music
+pictures: C:\Users\gaming\Pictures
+videos: C:\Users\gaming\Videos
+talon home: C:\Users\gaming\AppData\Roaming\talon
+talon recordings: C:\Users\gaming\AppData\Roaming\talon\recordings
+talon user: C:\Users\gaming\AppData\Roaming\talon\user
+profile: C:\Users\gaming
