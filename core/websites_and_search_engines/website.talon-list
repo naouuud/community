@@ -17,5 +17,6 @@ gist: https://gist.github.com/
 wikipedia: https://en.wikipedia.org/
 youtube: https://www.youtube.com/
 local host: localhost:4200/
+next server: localhost:3000/
 chat: https://chatgpt.com/
 skill builder: https://skillbuilder.aws/
