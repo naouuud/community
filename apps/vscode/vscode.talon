@@ -149,6 +149,14 @@ close all tabs: user.vscode("workbench.action.closeAllEditors")
 close tabs way right: user.vscode("workbench.action.closeEditorsToTheRight")
 close tabs way left: user.vscode("workbench.action.closeEditorsToTheLeft")
 
+# Command Palette
+commands: user.vscode("workbench.action.showCommands")
+
+# Surround With
+surround if: user.vscode("surround.with.if")
+surround else: user.vscode("surround.with.ifElse")
+surround function: user.vscode("surround.with.functionDeclaration")
+
 # Folding
 fold that: user.vscode("editor.fold")
 unfold that: user.vscode("editor.unfold")

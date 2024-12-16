@@ -45,6 +45,9 @@ state async: "async "
 
 state await: "await "
 
+state log:
+    "clg"
+
 dot {user.code_common_member_function}:
     user.insert_between(".{code_common_member_function}(", ")")
 
